@@ -16,5 +16,40 @@
         </property>
     </bean>
 
+    <!--<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">-->
+        <!--&lt;!&ndash; 必须设置 &ndash;&gt;-->
+        <!--&lt;!&ndash;<property name="securityManager" ref="securityManager"/>&ndash;&gt;-->
+        <!--&lt;!&ndash; 3 个 url 属性为可选设置 &ndash;&gt;-->
+        <!--<property name="loginUrl" value="/login.jsp"/>-->
+        <!--<property name="successUrl" value="/home.jsp"/>-->
+        <!--<property name="unauthorizedUrl" value="/unauthorized.jsp"/>-->
+        <!--<property name="filterChainDefinitions">-->
+            <!--<value>-->
+                <!--&lt;!&ndash; 对静态资源设置匿名访问 &ndash;&gt;-->
+                <!--/resources/** = anon-->
+                <!--/login = anon-->
+                <!--&lt;!&ndash; /** = authc 所有url都必须认证通过才可以访问&ndash;&gt;-->
+                <!--/** = authc-->
+            <!--</value>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <!-- 安全管理器 -->
+    <!--<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">-->
+        <!--<property name="realm" ref="customRealm" />-->
+    <!--</bean>-->
+
+    <!-- 自定义 realm -->
+    <!--<bean id="customRealm" class="com.light.ac.web.realm.CustomRealm"></bean>-->
+
+    <!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
+
+
+
+
+
+
+
     <import resource="application-mybatis.xml"/>
 </beans>
